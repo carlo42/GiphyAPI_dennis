@@ -1,26 +1,26 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from "react";
 import {
   Navbar,
   ButtonGroup,
   Button,
   MenuItem,
   DropdownButton,
-} from 'react-bootstrap';
+} from "react-bootstrap";
 import {
   updateFilterAction,
   incrementOffset,
   decrementOffset,
-} from '../selectors/headerSelectors';
-import '../styles/header.scss';
+} from "../selectors/headerSelectors";
+import "../styles/header.scss";
 
 export class Header extends React.Component {
   kittenFilter() {
     const { updateFilter } = this.props;
-    updateFilterAction(updateFilter, 'cute+kittens');
+    updateFilterAction(updateFilter, "cute+kittens");
   }
   puppyFilter() {
     const { updateFilter } = this.props;
-    updateFilterAction(updateFilter, 'cute+puppies');
+    updateFilterAction(updateFilter, "cute+puppies");
   }
   previous() {
     const { updateFilter, headerOptions } = this.props;
@@ -43,10 +43,10 @@ export class Header extends React.Component {
     const { headerOptions } = this.props;
 
     let dropDownTitle;
-    if (headerOptions.currentFilter === 'cute+kittens') {
-      dropDownTitle = 'Kittens';
+    if (headerOptions.currentFilter === "cute+kittens") {
+      dropDownTitle = "Kittens";
     } else {
-      dropDownTitle = 'Puppies & Kittens';
+      dropDownTitle = "Puppies & Kittens";
     }
 
     return (
