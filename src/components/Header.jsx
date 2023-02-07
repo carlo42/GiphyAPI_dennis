@@ -42,12 +42,14 @@ export class Header extends React.Component {
   render() {
     const { headerOptions } = this.props;
 
-    let dropDownTitle;
-    if (headerOptions.currentFilter === "cute+kittens") {
-      dropDownTitle = "Kittens";
-    } else {
-      dropDownTitle = "Puppies & Kittens";
-    }
+    // assume we get an this from server
+    let animals = {
+      "cute+kittens": "Kittens",
+      "cute+puppies": "Puppies",
+      "cute+puppies+kittens": "Puppies & Kittens",
+    };
+
+    let dropDownTitle = animals[headerOptions.currentFilter];
 
     return (
       <Navbar className="header-navbar" inverse>
@@ -62,6 +64,9 @@ export class Header extends React.Component {
           <DropdownButton title={dropDownTitle} id="bg-nested-dropdown">
             <MenuItem eventKey="1" onClick={this.kittenFilter.bind(this)}>
               Kittens
+            </MenuItem>
+            <MenuItem eventKey="2" onClick={this.puppyFilter.bind(this)}>
+              Puppies
             </MenuItem>
           </DropdownButton>
           <Button bsStyle="primary" onClick={this.previous}>
