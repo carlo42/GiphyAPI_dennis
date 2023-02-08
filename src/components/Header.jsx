@@ -40,14 +40,22 @@ export class Header extends React.Component {
   }
 
   render() {
-    const { headerOptions } = this.props;
+    const {
+      headerOptions: { currentFilter },
+    } = this.props;
 
-    let dropDownTitle;
-    if (headerOptions.currentFilter === "cute+kittens") {
-      dropDownTitle = "Kittens";
-    } else {
-      dropDownTitle = "Puppies & Kittens";
-    }
+    // assume we get this from server:
+    let animals = [
+      { "cute+kittens": "Kittens" },
+      { "cute+puppies": "Puppies" },
+      { "cute+puppies+kittens": "Puppies & Kittens" },
+    ];
+
+    let dropDownTitle = animals.find((animal) => animal[currentFilter])[
+      currentFilter
+    ];
+
+    // NB: Could possibly also use map from the array to generate the menu items below
 
     return (
       <Navbar className="header-navbar" inverse>
@@ -62,6 +70,9 @@ export class Header extends React.Component {
           <DropdownButton title={dropDownTitle} id="bg-nested-dropdown">
             <MenuItem eventKey="1" onClick={this.kittenFilter.bind(this)}>
               Kittens
+            </MenuItem>
+            <MenuItem eventKey="2" onClick={this.puppyFilter.bind(this)}>
+              Puppies
             </MenuItem>
           </DropdownButton>
           <Button bsStyle="primary" onClick={this.previous}>
