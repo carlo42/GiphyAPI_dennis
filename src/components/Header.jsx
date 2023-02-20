@@ -45,6 +45,8 @@ export class Header extends React.Component {
     let dropDownTitle;
     if (headerOptions.currentFilter === "cute+kittens") {
       dropDownTitle = "Kittens";
+    } else if (headerOptions.currentFilter === "cute+puppies") {
+      dropDownTitle = "Puppies";
     } else {
       dropDownTitle = "Puppies & Kittens";
     }
@@ -63,11 +65,14 @@ export class Header extends React.Component {
             <MenuItem eventKey="1" onClick={this.kittenFilter.bind(this)}>
               Kittens
             </MenuItem>
+            <MenuItem eventKey="2" onClick={this.puppyFilter.bind(this)}>
+              Puppies
+            </MenuItem>
           </DropdownButton>
-          <Button bsStyle="primary" onClick={this.previous}>
+          <Button bsStyle="primary" onClick={this.previous.bind(this)}>
             Prev
           </Button>
-          <Button bsStyle="primary" onClick={this.next}>
+          <Button bsStyle="primary" onClick={this.next.bind(this)}>
             Next
           </Button>
         </ButtonGroup>

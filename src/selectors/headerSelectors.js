@@ -4,14 +4,17 @@ export const updateFilterAction = (updateFilter, filterType) => {
   updateFilter.fetchGifyResults(filterType, 0);
 };
 
+const numImages = 10;
 export const incrementOffset = (updateFilter, currentFilter, offset) => {
-    let newOffset = offset +15;
-    updateFilter.updateOffset(newOffset);
-    updateFilter.fetchGifyResults(currentFilter, offset+15);
+  let newOffset = offset + numImages;
+  updateFilter.updateOffset(newOffset);
+  updateFilter.fetchGifyResults(currentFilter, newOffset);
 };
 
 export const decrementOffset = (updateFilter, currentFilter, offset) => {
-    let newOffset = offset -15;
+  let newOffset = offset - numImages;
+  if (newOffset >= 0) {
     updateFilter.updateOffset(newOffset);
-    updateFilter.fetchGifyResults(currentFilter, offset-15);
+    updateFilter.fetchGifyResults(currentFilter, newOffset);
+  }
 };
