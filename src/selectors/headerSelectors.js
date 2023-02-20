@@ -5,13 +5,13 @@ export const updateFilterAction = (updateFilter, filterType) => {
 };
 
 export const incrementOffset = (updateFilter, currentFilter, offset) => {
-    let newOffset = offset +15;
-    updateFilter.updateOffset(newOffset);
-    updateFilter.fetchGifyResults(currentFilter, offset+15);
+  let newOffset = offset + 15;
+  updateFilter.updateOffset(newOffset);
+  updateFilter.fetchGifyResults(currentFilter, offset + 15);
 };
 
 export const decrementOffset = (updateFilter, currentFilter, offset) => {
-    let newOffset = offset -15;
-    updateFilter.updateOffset(newOffset);
-    updateFilter.fetchGifyResults(currentFilter, offset-15);
+  let newOffset = offset - 15;
+  updateFilter.updateOffset(newOffset);
+  updateFilter.fetchGifyResults(currentFilter, offset - 15);
 };
