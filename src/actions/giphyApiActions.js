@@ -35,10 +35,7 @@ export const recieveGiphyResults = (giphyResults) => {
   };
 };
 
-export const fetchGifyResults = (
-  filter = "cute+puppies+kittens",
-  offset = 0
-) => {
+export const fetchGifyResults = (filter = "cute+puppies", offset = 0) => {
   return function (dispatch) {
     return axios({
       url: `http://api.giphy.com/v1/gifs/search`,
